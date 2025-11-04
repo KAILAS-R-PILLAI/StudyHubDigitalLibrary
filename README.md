@@ -37,4 +37,4 @@ Version Control: Git & GitHub
 Here’s a sneak peek of the interface 👇
 | Register Students | Manage Data |
 |--------------------|-------------|
-| ![Register Students]([https://i.imgur.com/abcd123.jpg](https://github.com/Gaurav-1404/StudyHubDigitalLibrary/blob/main/WebsiteView%20(1).jpg)) | ![Manage Data]([https://i.imgur.com/efgh456.jpg](https://github.com/Gaurav-1404/StudyHubDigitalLibrary/blob/main/WebsiteView%20(2).jpg)) |
+| ![Register Students](https://github.com/Gaurav-1404/StudyHubDigitalLibrary/blob/main/WebsiteView%20(2).jpg) | ![Manage Data](https://github.com/Gaurav-1404/StudyHubDigitalLibrary/blob/main/WebsiteView%20(1).jpg) |
