@@ -1,4 +1,4 @@
-**📚 Study Hub Digital Library**
+📚 Study Hub Digital Library
 
 Your digital space to manage students, memberships, and fees — effortlessly.
 
@@ -8,7 +8,7 @@ Your digital space to manage students, memberships, and fees — effortlessly.
 
 🎯 About the Project
 
-Welcome to Study Hub Digital Library, a smart web app built to simplify student management and fee tracking for educational centers, libraries, or coaching institutes.
+Welcome to Study Hub Digital Library, a smart web app designed to simplify student management and fee tracking for educational centers, libraries, and coaching institutes.
 
 No more messy registers or spreadsheets — this system helps you:
 
@@ -35,7 +35,6 @@ Version Control: Git & GitHub
 💻 How It Looks
 
 Here’s a sneak peek of the interface 👇
-
-|Register Students|	|Manage Data|
-|WebsiteView (2).jpg| |WebsiteView (1).jpg|
-	
+| Register Students | Manage Data |
+|--------------------|-------------|
+| ![Register Students]([https://i.imgur.com/abcd123.jpg](https://github.com/Gaurav-1404/StudyHubDigitalLibrary/blob/main/WebsiteView%20(1).jpg)) | ![Manage Data]([https://i.imgur.com/efgh456.jpg](https://github.com/Gaurav-1404/StudyHubDigitalLibrary/blob/main/WebsiteView%20(2).jpg)) |
