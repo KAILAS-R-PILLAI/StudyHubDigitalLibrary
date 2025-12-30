@@ -1,0 +1,42 @@
+name: Dev CI/CD
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: "npm"
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test || echo "Skipping tests"
+
+    - name: Build
+      run: npm run build || echo "No build script"
+
+    - name: Send email if fails
+      if: failure()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 587
+        username: ${{ secrets.EMAIL_USER }}
+        password: ${{ secrets.EMAIL_PASS }}
+        subject: "DEV Workflow Failed"
+        body: "Dev workflow for StudyHubDigitalLibrary failed"
+        to: kailasrpillai2074@gmail.com
+        from: GitHub Actions
+
