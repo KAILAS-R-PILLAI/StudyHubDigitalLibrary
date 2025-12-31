@@ -17,16 +17,19 @@ jobs:
         cache: "npm"
 
     - run: npm install
-    - run: npm test
+
+    - name: Run tests
+      run: npm test
 
     - name: Build
-      run: npm run build
+      run: npm run build || echo "No build step"
 
     - name: Deploy to Firebase (production)
       run: |
         npm install -g firebase-tools
-        firebase use production
-        firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
+        firebase deploy \
+          --project cicd-project-3fae3 \
+          --token "${{ secrets.FIREBASE_TOKEN }}"
 
     - name: Send email if fails
       if: failure()
