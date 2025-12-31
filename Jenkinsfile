@@ -7,7 +7,7 @@ pipeline {
     }
 
     tools {
-        nodejs 'node25'
+        nodejs 'node18'
     }
 
 
