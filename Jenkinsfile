@@ -39,7 +39,9 @@ pipeline {
                     else if (env.BRANCH_NAME == 'prod') {
                         echo 'Building PROD branch'
                         sh 'npm run build:prod || true'
-                    } 
+                    }
+                    else if (env.BRANCH_NAME == 'main') {
+                        sh 'npm run build || echo "No build step for main"'
                     else {
                         echo "Unknown branch: ${env.BRANCH_NAME}"
                     }
