@@ -10,12 +10,12 @@ pipeline {
         nodejs 'node18'
     }
 
-
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
+                echo 'Listing files after checkout:'
+                sh 'ls -la'
             }
         }
 
@@ -27,26 +27,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                script {
-                    if (env.BRANCH_NAME == 'dev') {
-                        echo 'Building DEV branch'
-                        sh 'npm run build:dev || true'
-                    } 
-                    else if (env.BRANCH_NAME == 'stage') {
-                        echo 'Building STAGE branch'
-                        sh 'npm run build:stage || true'
-                    } 
-                    else if (env.BRANCH_NAME == 'prod') {
-                        echo 'Building PROD branch'
-                        sh 'npm run build:prod || true'
-                    }
-                    else if (env.BRANCH_NAME == 'main') {
-                        sh 'npm run build || echo "No build step for main"'
-                    }
-                    else {
-                        echo "Unknown branch: ${env.BRANCH_NAME}"
-                    }
-                }
+                echo 'Building MAIN branch'
+                sh 'npm run build || echo "No build step for main"'
             }
         }
 
@@ -58,17 +40,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                script {
-                    if (env.BRANCH_NAME == 'dev') {
-                        echo 'Deploying to DEV environment'
-                    } 
-                    else if (env.BRANCH_NAME == 'stage') {
-                        echo 'Deploying to STAGE environment'
-                    } 
-                    else if (env.BRANCH_NAME == 'prod') {
-                        echo 'Deploying to PROD environment'
-                    }
-                }
+                echo 'Deploying to MAIN environment'
             }
         }
     }
@@ -77,17 +49,18 @@ pipeline {
         success {
             emailext(
                 to: 'kailasrpillai2074@gmail.com',
-                subject: "Build SUCCESS: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
-                body: "Build succeeded! Check details at ${env.BUILD_URL}"
+                subject: "MAIN Build SUCCESS: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
+                body: "MAIN Build succeeded! Check details at ${env.BUILD_URL}"
             )
         }
 
         failure {
             emailext(
                 to: 'kailasrpillai2074@gmail.com',
-                subject: "Build FAILED: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
-                body: "Build failed! Check console output at ${env.BUILD_URL}"
+                subject: "MAIN Build FAILED: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
+                body: "MAIN Build failed! Check console output at ${env.BUILD_URL}"
             )
         }
     }
 }
+
