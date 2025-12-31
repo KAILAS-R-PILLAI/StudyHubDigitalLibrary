@@ -5,6 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
+    "build": "echo Building app",
+    "build:dev": "echo Building DEV",
+    "build:stage": "echo Building STAGE",
+    "build:prod": "echo Building PROD",
     "start": "node server.js"
   },
   "keywords": [],
