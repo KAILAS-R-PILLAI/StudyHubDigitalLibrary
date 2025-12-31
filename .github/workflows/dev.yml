@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Run tests
-      run: npm test || echo "Skipping tests"
+      run: npm test
 
     - name: Build
       run: npm run build || echo "No build script"
