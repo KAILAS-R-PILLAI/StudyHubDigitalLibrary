@@ -6,6 +6,11 @@ pipeline {
         timestamps()
     }
 
+    tools {
+        nodejs 'node25'
+    }
+
+
     stages {
 
         stage('Checkout') {
