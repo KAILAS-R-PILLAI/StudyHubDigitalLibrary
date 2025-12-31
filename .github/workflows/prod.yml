@@ -17,10 +17,12 @@ jobs:
         cache: "npm"
 
     - run: npm install
-    - run: echo "Skipping tests – not configured yet"
+
+    - name: Run tests
+      run: npm test
 
     - name: Build
-      run: echo "Skipping tests – not configured yet"
+      run: npm run build || echo "No build step"
 
     - name: Deploy to Firebase (production)
       run: |
